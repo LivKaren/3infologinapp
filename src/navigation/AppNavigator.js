@@ -11,8 +11,9 @@ function AppNavigator() {
     return (
         <NavigationContainer>
         <Stack.Navigator initialRouteName='Login'>
+        <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Home'}}></Stack.Screen> 
         <Stack.Screen name="Login" component={LoginScreen} options={{title: 'Login'}}></Stack.Screen>
-         <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Home'}}></Stack.Screen> 
+         
         </Stack.Navigator>
         </NavigationContainer>
         
