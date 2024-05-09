@@ -48,7 +48,7 @@ export default function LoginScreen({ navigation }) {
           placeholder="Digite sua senha"
           onChangeText={setSenha}
           value={senha}
-          secureTextEntry // faz com que o campo seja senha com *
+          secureTextEntry 
           style={styles.input}
           error={erro.senha}
         />

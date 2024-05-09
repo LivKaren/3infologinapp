@@ -1,11 +1,7 @@
-// criação de tema
-// https://callstack.github.io/react-native-paper/docs/guides/theming/#creating-dynamic-theme-colors
+
 
 import { MD3DarkTheme, MD3LightTheme } from "react-native-paper";
 
-// ao colar use o ALT + SHIFT + F para formatar o código
-// se você estiver usando o prettier, ele vai formatar o código
-// e remover as áspas simples
 export const themeLight = {
   ...MD3LightTheme,
   colors: {
