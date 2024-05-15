@@ -3,7 +3,8 @@ import { Button, Surface, Text, TextInput } from "react-native-paper";
 import { useState } from "react";
 import { styles } from "../config/styles";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth, db } from "../config/firebase";
+import { collection, doc, setDoc } from "firebase/firestore";
 
 export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -75,6 +76,7 @@ export default function RegisterScreen({ navigation }) {
 
   }
 
+ 
   async function cadastrarNoFirebase() {
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -84,6 +86,22 @@ export default function RegisterScreen({ navigation }) {
       );
       const user = userCredential.user;
       console.log("Usuário cadastrado", user);
+
+      const collectionRef = collection(db, "usuarios");
+      
+      const docRef = await setDoc(
+        doc(collectionRef, user.uid),
+        {
+          nome: nome,
+          email: email,
+          senha: senha,
+          logradouro: logradouro,
+          cep: cep,
+          cidade: cidade,
+          estado: estado,
+        }
+        );
+
     } catch (error) {
       console.error(error);
     }
